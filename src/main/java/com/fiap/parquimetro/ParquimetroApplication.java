@@ -8,6 +8,7 @@ public class ParquimetroApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ParquimetroApplication.class, args);
+
 	}
 
 }
