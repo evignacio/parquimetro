@@ -14,4 +14,10 @@ public class Pagamento extends Entity {
     private TipoPagamento tipo;
     private BigDecimal valor;
     private LocalDateTime data;
+
+    public Pagamento(TipoPagamento tipo, BigDecimal valor, LocalDateTime data) {
+        this.tipo = tipo;
+        this.valor = valor;
+        this.data = data;
+    }
 }
