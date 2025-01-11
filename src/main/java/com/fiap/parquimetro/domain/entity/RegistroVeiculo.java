@@ -1,11 +1,14 @@
 package com.fiap.parquimetro.domain.entity;
 
 import com.fiap.parquimetro.domain.valueObject.Pagamento;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
+
+@Getter
 @Document("registroVeiculo")
 public class RegistroVeiculo extends Entity {
     private final String placaVeiculo;
@@ -40,9 +43,5 @@ public class RegistroVeiculo extends Entity {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

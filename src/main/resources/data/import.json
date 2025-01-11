@@ -1,0 +1,9 @@
+[
+  {
+    "codigo": "602c64e68d70a828d032b2bc",
+    "valorPrimeiraHora": 10.50,
+    "valorHorasAdicionais": 5,
+    "qtdMinimaHorasPermitidas": 1,
+    "qtdMaximaHorasPermitidas": 10
+  }
+]
