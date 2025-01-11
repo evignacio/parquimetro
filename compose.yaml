@@ -1,0 +1,7 @@
+services:
+  parquimetro:
+    image: evandroig/parquimetro:latest
+    ports:
+      - "8080:8080"
+  mongodb:
+    image: mongo:latest
