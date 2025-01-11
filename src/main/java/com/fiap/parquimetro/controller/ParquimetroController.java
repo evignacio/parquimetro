@@ -22,23 +22,22 @@ public class ParquimetroController {
     private final ConsultarHistoricoDeRegistros consultarHistoricoDeRegistros;
     private final ConsultarRegularidadeVeiculoService consultarRegularidadeVeiculoService;
 
-    @GetMapping("tabela-preco")
-
+    @GetMapping("tabela-precos")
     public ResponseEntity<ConsultarTabelaDePrecoService.OutPut> consultarTabelaPreco() {
         return ResponseEntity.ok(this.consultarTabelaDePrecoService.execute());
     }
 
-    @PostMapping("registro-veiculo")
+    @PostMapping("registro-veiculos")
     public ResponseEntity<CriarRegistroVeiculoService.Output> criarRegistroVeiculo(@RequestBody CriarRegistroVeiculoService.Input input) {
         return ResponseEntity.ok(this.criarRegistroVeiculo.execute(input));
     }
 
-    @GetMapping("consultar-regularidade-veiculo")
+    @GetMapping("consultar-regularidade-veiculos")
     public ResponseEntity<ConsultarRegularidadeVeiculoService.Output> consultarRegularidadeVeiculo(String input) {
         return ResponseEntity.ok(this.consultarRegularidadeVeiculoService.execute(input));
     }
 
-    @GetMapping("registro-veiculo")
+    @GetMapping("registro-veiculos")
     public ResponseEntity<Page<ConsultarHistoricoDeRegistros.Output>> consultarRegistroVeiculo(
             @RequestParam(value = "dataInicio", required = false) LocalDateTime dataInicio,
             @RequestParam(value = "dataFim", required = false) LocalDateTime dataFim,
