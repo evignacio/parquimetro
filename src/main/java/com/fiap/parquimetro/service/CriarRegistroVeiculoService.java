@@ -11,11 +11,14 @@ public interface CriarRegistroVeiculoService {
     record Input(String placaVeiculo, TipoPagamento tipoPagamento, int qtdHorasReserva) {
     }
 
-    record Output(LocalDateTime dataReservaVeiculo,
-                         BigDecimal valorPrimeiraHora,
-                         BigDecimal valorHorasAdicionais,
-                         int qtdHorasReservadas,
-                         BigDecimal valorTotalReserva,
-                         LocalDateTime dataLimiteReservaVeiculo) {
+    record Output(String placaVeiculo,
+                  LocalDateTime dataReservaVeiculo,
+                  LocalDateTime dataLimiteReservaVeiculo,
+                  BigDecimal valorPrimeiraHora,
+                  BigDecimal valorHorasAdicionais,
+                  int qtdHorasReservadas,
+                  BigDecimal valorTotalReserva,
+                  TipoPagamento tipoPagamento
+                  ) {
     }
 }
