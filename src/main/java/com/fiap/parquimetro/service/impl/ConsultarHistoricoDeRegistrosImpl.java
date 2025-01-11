@@ -17,8 +17,19 @@ public class ConsultarHistoricoDeRegistrosImpl implements ConsultarHistoricoDeRe
     private final RegistroVeiculoRepository registroVeiculoRepository;
 
     @Override
-    public Page<Output> execute(LocalDateTime dataInicio, LocalDateTime dataFim, String placaVeiculo, Pageable pageRequest) {
-        var registrosVeiculos = this.registroVeiculoRepository.findAll(dataInicio, dataFim, placaVeiculo, pageRequest);
-        return new PageImpl<>(new Output());
+    public Page<Output> execute(LocalDateTime dataInicio, LocalDateTime dataFim, String placaVeiculo, Pageable pageable) {
+        var registrosVeiculos = this.registroVeiculoRepository.findAll(dataInicio, dataFim, placaVeiculo, pageable);
+        var registroVeiculoOutput = registrosVeiculos.get()
+                .map(r ->
+                        new Output(
+                                r.getPlacaVeiculo(),
+                                r.getDataRegistro(),
+                                r.getDataLimitePermanencia(),
+                                r.getPagamento().getValor(),
+                                r.getPagamento().getTipo()
+                        )
+                )
+                .toList();
+        return new PageImpl<>(registroVeiculoOutput);
     }
 }

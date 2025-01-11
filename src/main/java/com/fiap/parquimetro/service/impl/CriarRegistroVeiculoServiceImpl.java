@@ -1,6 +1,6 @@
 package com.fiap.parquimetro.service.impl;
 
-import com.fiap.parquimetro.domain.entity.Pagamento;
+import com.fiap.parquimetro.domain.valueObject.Pagamento;
 import com.fiap.parquimetro.domain.entity.RegistroVeiculo;
 import com.fiap.parquimetro.repository.RegistroVeiculoRepository;
 import com.fiap.parquimetro.service.ConsultarTabelaDePrecoService;
@@ -30,12 +30,14 @@ public class CriarRegistroVeiculoServiceImpl implements CriarRegistroVeiculoServ
 
         this.salvarRegistroVeiculo(tabelaDepreco, input, dataReservaVeiculo);
         return new Output(
+                input.placaVeiculo(),
                 dataReservaVeiculo,
+                calcularDataLimiteReservaVeiculo(dataReservaVeiculo, input),
                 tabelaDepreco.valorPrimeiraHora(),
                 tabelaDepreco.valorHorasAdicionas(),
                 input.qtdHorasReserva(),
                 calcularValorReserva(tabelaDepreco, input),
-                calcularDataLimiteReservaVeiculo(dataReservaVeiculo, input)
+                input.tipoPagamento()
         );
     }
 

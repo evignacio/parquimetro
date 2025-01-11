@@ -55,3 +55,6 @@ Msrc/main/java/com/fiap/parquimetro/service/dto/CriarRegistroVeiculoInput.java,
 Nsrc/main/java/com/fiap/parquimetro/service/dto/CriarRegistroVeiculoOutput.java,b/4/b40a8b376f269de78a15113ef0ec81a0544e3640
 €
 Psrc/main/java/com/fiap/parquimetro/service/dto/ConsultarTabelaDePrecoOutput.java,7/b/7bd9b2a12f2409ce387820608eeca3b404c354e8
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302

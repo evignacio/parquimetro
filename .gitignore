@@ -1,7 +1,9 @@
 # Diretórios e arquivos específicos do IntelliJ IDEA
 .idea/
+.idea/*
 *.iml
 *.iws
+build
 
 # Compiled class file
 *.class
