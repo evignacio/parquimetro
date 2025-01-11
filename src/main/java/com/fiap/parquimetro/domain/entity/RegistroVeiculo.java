@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 @Document
 public class RegistroVeiculo extends Entity {
+    @Id
+    private String id;
     private final String placaVeiculo;
     private final LocalDateTime dataRegistro;
     private final LocalDateTime dataLimitePermanencia;
     @DocumentReference
     private final Pagamento pagamento;
-    @Id
-    private String id;
 
     public RegistroVeiculo(String placaVeiculo, LocalDateTime dataRegistro, LocalDateTime dataLimitePermanencia, Pagamento pagamento) {
         this.placaVeiculo = placaVeiculo;
