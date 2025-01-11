@@ -1,11 +1,13 @@
 package com.fiap.parquimetro.domain.entity;
 
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Document
 public class RegistroVeiculo extends Entity {
     @Id
