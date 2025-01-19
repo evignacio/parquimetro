@@ -25,10 +25,10 @@ public class RegistroVeiculoCustomRepositoryImpl implements RegistroVeiculoCusto
         var criteria = new Criteria();
 
         if (dataInicial != null && dataFinal != null)
-            criteria.and("dataRegistro")
-                    .gte(dataInicial)
-                    .and("dataRegistro")
-                    .lte(dataFinal);
+            criteria.andOperator(
+                    Criteria.where("dataRegistro").gte(dataInicial),
+                    Criteria.where("dataRegistro").lte(dataFinal)
+            );
 
         if (placaVeiculo != null)
             criteria.and("placaVeiculo")
