@@ -2,6 +2,7 @@ package com.fiap.parquimetro.service.impl;
 
 import com.fiap.parquimetro.domain.valueObject.Pagamento;
 import com.fiap.parquimetro.domain.entity.RegistroVeiculo;
+import com.fiap.parquimetro.exception.ApplicationException;
 import com.fiap.parquimetro.repository.RegistroVeiculoRepository;
 import com.fiap.parquimetro.service.ConsultarTabelaDePrecoService;
 import com.fiap.parquimetro.service.CriarRegistroVeiculoService;
@@ -24,7 +25,7 @@ public class CriarRegistroVeiculoServiceImpl implements CriarRegistroVeiculoServ
 
         if (input.qtdHorasReserva() < tabelaDepreco.qtdMinimaHorasPermitidas() ||
                 input.qtdHorasReserva() > tabelaDepreco.qtdMaximaHorasPermitidas())
-            throw new RuntimeException("Quantidade de horas da reserva maior que a quantidade permitida");
+            throw new ApplicationException("Quantidade de horas da reserva nao permitida");
 
         var dataReservaVeiculo = LocalDateTime.now();
 

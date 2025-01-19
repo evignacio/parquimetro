@@ -1,0 +1,19 @@
+services:
+  parquimetro-app:
+    image: evandroig/parquimetro:latest
+    networks:
+      - parquimetro-network
+    ports:
+      - "8080:8080"
+    links:
+      - "mongodb:servicedb"
+  mongodb:
+    networks:
+      - parquimetro-network
+    image: mongo:latest
+
+networks:
+  parquimetro-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"

@@ -22,7 +22,7 @@ public class ParquimetroController {
     private final ConsultarHistoricoDeRegistros consultarHistoricoDeRegistros;
     private final ConsultarRegularidadeVeiculoService consultarRegularidadeVeiculoService;
 
-    @GetMapping("tabela-precos")
+    @GetMapping("tabela-preco")
     public ResponseEntity<ConsultarTabelaDePrecoService.OutPut> consultarTabelaPreco() {
         return ResponseEntity.ok(this.consultarTabelaDePrecoService.execute());
     }
@@ -32,9 +32,9 @@ public class ParquimetroController {
         return ResponseEntity.ok(this.criarRegistroVeiculo.execute(input));
     }
 
-    @GetMapping("consultar-regularidade-veiculos")
-    public ResponseEntity<ConsultarRegularidadeVeiculoService.Output> consultarRegularidadeVeiculo(String input) {
-        return ResponseEntity.ok(this.consultarRegularidadeVeiculoService.execute(input));
+    @GetMapping("consultar-regularidade-veiculo")
+    public ResponseEntity<ConsultarRegularidadeVeiculoService.Output> consultarRegularidadeVeiculo(String placaVeiculo) {
+        return ResponseEntity.ok(this.consultarRegularidadeVeiculoService.execute(placaVeiculo));
     }
 
     @GetMapping("registro-veiculos")
