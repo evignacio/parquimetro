@@ -5,7 +5,6 @@ import com.fiap.parquimetro.service.ConsultarRegularidadeVeiculoService;
 import com.fiap.parquimetro.service.ConsultarTabelaDePrecoService;
 import com.fiap.parquimetro.service.CriarRegistroVeiculoService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -43,8 +42,8 @@ public interface ParquimetroController {
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = ConsultarRegularidadeVeiculoService.Output.class))}),
     })
-    @GetMapping("consultar-regularidade-veiculo/{placaVeiculo}")
-    ResponseEntity<ConsultarRegularidadeVeiculoService.Output> consultarRegularidadeVeiculo(@Parameter(description = "Placa do veiculo a ser consultado") String placaVeiculo);
+    @GetMapping("consultar-regularidade-veiculo")
+    ResponseEntity<ConsultarRegularidadeVeiculoService.Output> consultarRegularidadeVeiculo(@RequestParam(name = "placaVeiculo") String placaVeiculo);
 
     @Operation(summary = "Consultar historico de registros de veiculos")
     @ApiResponses(value = {
