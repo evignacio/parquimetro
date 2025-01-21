@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
@@ -24,7 +25,7 @@ public class ConsultarRegularidadeVeiculoImpl implements ConsultarRegularidadeVe
     public Output execute(String placaVeiculo) {
         log.info("Consulta de regularidade de veiculo placa - {}", placaVeiculo);
         AtomicReference<Output> resultado = new AtomicReference<>();
-        var veiculo = registroVeiculoRepository.findByPlacaVeiculo(placaVeiculo);
+        var veiculo = registroVeiculoRepository.findAllByPlacaVeiculo(placaVeiculo).stream().max(Comparator.comparing(RegistroVeiculo::getDataRegistro));
         veiculo.ifPresentOrElse(registroVeiculo -> {
             var isVeiculoRegular = isVeiculoRegular(registroVeiculo);
             resultado.set(new Output(isVeiculoRegular, registroVeiculo.getPlacaVeiculo(), registroVeiculo.getDataLimitePermanencia()));
