@@ -19,7 +19,7 @@ public class MongoDBConfig {
         return args -> {
             ObjectMapper mapper = new ObjectMapper();
             TypeReference<List<TabelaDePreco>> typeReference = new TypeReference<List<TabelaDePreco>>() {};
-            InputStream inputStream = TypeReference.class.getResourceAsStream("/data/import.json");
+            InputStream inputStream = TypeReference.class.getResourceAsStream("/data/tabelaDePreco.json");
             List<TabelaDePreco> tabelaDePrecos = mapper.readValue(inputStream, typeReference);
             tabelaDePrecoRepository.saveAll(tabelaDePrecos);
             System.out.println("Data saved!");

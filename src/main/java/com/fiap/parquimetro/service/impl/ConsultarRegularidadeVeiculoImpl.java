@@ -1,6 +1,7 @@
 package com.fiap.parquimetro.service.impl;
 
 import com.fiap.parquimetro.domain.entity.RegistroVeiculo;
+import com.fiap.parquimetro.exception.ApplicationException;
 import com.fiap.parquimetro.repository.RegistroVeiculoRepository;
 import com.fiap.parquimetro.service.ConsultarRegularidadeVeiculoService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class ConsultarRegularidadeVeiculoImpl implements ConsultarRegularidadeVe
             var isVeiculoRegular = isVeiculoRegular(registroVeiculo);
             resultado.set(new Output(isVeiculoRegular, registroVeiculo.getPlacaVeiculo(), registroVeiculo.getDataLimitePermanencia()));
         }, () -> {
-            throw new RuntimeException("Veiculo nao encontrado");
+            throw new ApplicationException("Veiculo nao encontrado");
         });
 
         return resultado.get();
